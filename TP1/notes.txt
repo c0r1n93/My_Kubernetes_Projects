@@ -1,0 +1,30 @@
+After execute the install_kubernetes.sh script on both master and worker nodes
+
+On the master node:
+initialize the Kubernetes Cluster with Kubeadm
+$ sudo kubeadm init
+
+After the initialization is complete make a note of the kubeadm join command for future reference.
+Run the following commands:
+$ mkdir -p $HOME/.kube
+$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Next, use kubectl commands to check the cluster and node status:
+$ kubectl get nodes
+
+
+On the worker node
+use the kubeadm join command you noted down earlier:
+$ kubeadm join 146.190.135.86:6443 --token f1h95l.u4nkex9cw8d0g63w --discovery-token-ca-cert-hash sha256:6d15f2a79bdb38d1666af50c85f060b9fadc73f13c932e0e2a9eeef08f51f91a
+
+
+Install Kubernetes Network Plugin (master node)
+To enable communication between pods in the cluster, you need a network plugin. 
+Install the Calico network plugin with the following command from the master node:
+$ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+
+
+Verify the cluster and test (master node)
+$ kubectl get pods -n kube-system
+$ kubectl get nodes
