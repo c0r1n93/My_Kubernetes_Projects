@@ -9,7 +9,8 @@ In this TP, you will deploy your first Kubernetes application using pods and dep
 
        Create a YAML file named pod.yml and add the following;
 
-```apiVersion: v1
+```
+apiVersion: v1
 kind: Pod
 metadata:
   name: webapp-red
@@ -49,7 +50,8 @@ spec:
 
        Create a YAML file named nginx-deployment.yml and add the following; 
 
-```apiVersion: apps/v1
+``` 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -92,7 +94,8 @@ spec:
         Update nginx-deployment.yml to use the latest Nginx image: 
 
 
-```apiVersion: apps/v1
+``` 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -156,14 +159,14 @@ spec:
 
          Execute the following commands ;    
 
-             mkdir -p Kubernetes-training/tp-2
-             mv pod.yml nginx-deployment.yml Kubernetes-training/tp-2/
+             mkdir -p Kubernetes-Projects/tp-2
+             mv pod.yml nginx-deployment.yml Kubernetes-Projects/tp-2/
 
    2.  Initializing and Pushing to GitHub      
 
           Execute the following commands ; 
 
-             cd Kubernetes-training
+             cd Kubernetes-Projects
              git init
              git add .
              git commit -m "Added Kubernetes manifests for TP-2"
