@@ -65,7 +65,12 @@ spec:
 - Apply both manifests to deploy the pods:
 
 kubectl apply -f pod-red.yml
+
 kubectl apply -f pod-blue.yml
+
+- Then execute the following command to verify pod status and if pod is runnung correctly.
+  
+  kubectl get pods -n production
 
 # Create a NodePort Service
 
