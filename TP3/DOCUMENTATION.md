@@ -64,8 +64,9 @@ spec:
 
 - Apply both manifests to deploy the pods:
 
-kubectl apply -f pod-red.yml
-kubectl apply -f pod-blue.yml
+     kubectl apply -f pod-red.yml
+     
+     kubectl apply -f pod-blue.yml
 
 # Create a NodePort Service
 
